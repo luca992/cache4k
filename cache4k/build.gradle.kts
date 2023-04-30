@@ -11,6 +11,7 @@ kotlin {
                 implementation(libs.atomicfu)
             }
         }
+        val jvmMain by getting
         val nonJvmMain by getting {
             dependencies {
                 dependsOn(commonMain)
@@ -30,7 +31,7 @@ kotlin {
         }
         val jvmLincheck by getting {
             dependencies {
-                dependsOn(commonMain)
+                dependsOn(jvmMain)
                 implementation(kotlin("test-junit5"))
                 implementation(libs.lincheck)
             }
